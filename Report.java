@@ -17,8 +17,6 @@ public class Report{
     
     public void start(){
         Scanner sc = new Scanner(System.in);
-        ReportList rpList = new ReportList(this.year, this.month, this.date, this.day, this.understandingLevel,this.satisfactoryLevel,this.selfEvaluation, this.location, this.duration, this.thoughts);
-        
         //ユーザー入力部分
         //>>全て入力完了後ReportListクラス内の対応するフィールドに値をそれぞれ追加
         System.out.print("作成年を入力してください： ");
@@ -43,7 +41,8 @@ public class Report{
         this.thoughts = sc.next();
         System.out.print("次の操作を選択してください(1.作成したレポートの閲覧, 2.全てのレポートの閲覧):");
         int exCommand = sc.nextInt();
-        
+
+        ReportList rpList = new ReportList(this.year, this.month, this.date, this.day, this.understandingLevel,this.satisfactoryLevel,this.selfEvaluation, this.location, this.duration, this.thoughts);
         //操作の選択による分岐
         if(exCommand==1){ rpList.dispLatestMonthReaport();}
         else if(exCommand==2){ rpList.dispReport();}
